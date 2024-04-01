@@ -70,6 +70,8 @@ formData.append("fullName" , data.fullName)
 formData.append("avatar" ,data.avatar)
 
 console.log(formData.entries().next())
+console.log("userId",data.userId)
+console.log("formdata" ,formData)
 await dispatch(updateProfile([data.userId,formData]))
 
 await dispatch(getUserData())

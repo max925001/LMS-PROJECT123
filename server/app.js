@@ -6,6 +6,7 @@ import connectToDb from './config/dbconn.js';
 import router from './routes/userRoutes.js';
 import courseRouters from './routes/courseRouters.js'
 import errorMiddleware from './middleware/error.middleware.js';
+
 const app = express();
 
 
@@ -32,6 +33,10 @@ app.use('/ping' ,(req,res) =>{
 
 app.use('/api/v1/user' , router)
 app.use('/api/v1/course',courseRouters)
+
+
+
+
 
 
 app.all('*' ,(req,res) =>{

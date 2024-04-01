@@ -10,7 +10,7 @@ data: JSON.parse(localStorage.getItem('data') ) || {},
 
 
 export const createAccount = createAsyncThunk("/auth/signup" ,async(data) =>{
-
+console.log(data)
 try{
 const res = axiosInstance.post("user/register" ,data)
 toast.promise(res,{
@@ -33,7 +33,7 @@ toast.error(error?. response?. data?. message)
 
 
 
-
+console.log(createAccount)
 
 
 export const login = createAsyncThunk("/auth/login" ,async(data) =>{
@@ -103,10 +103,11 @@ toast.error(error?. response?. data?.message)
 
     export const updateProfile= createAsyncThunk("/user/update/profile" ,async (data) => {
 
-console.log(id ,data)
+console.log("datas",data)
         try{
         
-        
+        console.log("data",data[0])
+        console.log("data",data[1])
             const res = axiosInstance.put(`user/update/${data[0]}` ,data[1])
             toast.promise(res,{
             
@@ -143,7 +144,7 @@ console.log(id ,data)
                 const res =  await axiosInstance.get("user/me")
             
                 
-                return res?.data
+                return (await res).data
             
             
             
