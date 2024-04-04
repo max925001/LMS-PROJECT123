@@ -168,6 +168,7 @@ const getProfile =  async (req,res ,next) =>{
 try{
 
     const userId = req.user.id;
+    
 const user = await user.findById(userId)
 res.status(200).json({
     success:true,
