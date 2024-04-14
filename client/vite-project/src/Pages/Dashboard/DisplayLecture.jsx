@@ -2,7 +2,7 @@ import React, { useEffect ,useState } from 'react'
 import HomeLayout from '../../Layouts/HomeLayout'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCourseLectures } from '../../Redux/Slices/LectureSlice'
+import { deleteCourseLecture, getCourseLectures } from '../../Redux/Slices/LectureSlice'
 
 function DisplayLecture() {
 
@@ -19,6 +19,8 @@ const [currentVideo , setCurrentVideo] = useState(0)
 
  async function onLectureDelete(courseid,lectureid){
 console.log("delete",courseid,lectureid)
+await dispatch(deleteCourseLecture({courseid:courseid,lectureid:lectureid}))
+await dispatch(getCourseLectures(courseid))
 
 }
 
@@ -81,7 +83,7 @@ dispatch(getCourseLectures(id))
 <li className='font-semibold text-xl text-yellow-500 flex justify-between'>
   <p>Lectures List</p>
   {role==='ADMIN' &&(
-    <button className='btn-primary px-2 py-1 rounded-md font-semibold text-sm text-white bg-yellow-500'>Add new lectures</button>
+    <button  onClick={() =>navigate("/course/addLecture" ,{state:{...state?.state}})} className='btn-primary px-2 py-1 rounded-md font-semibold text-sm text-white bg-yellow-500'>Add new lectures</button>
   )}
 </li>
 

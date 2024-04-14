@@ -17,6 +17,7 @@ import CreateCourse from './Pages/course/CreateCourse'
 import Profile from './Pages/User/Profile'
 import EditProfile from './Pages/User/EditProfile'
 import DisplayLecture from './Pages/Dashboard/DisplayLecture'
+import AddLecture from './Pages/Dashboard/AddLecture'
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
 <Route  element={<RequiredAuth allowedRoles={["ADMIN"]}/>}>
 
 <Route path='/course/create' element={<CreateCourse/>}/>
+<Route path='/course/addLecture' element={<AddLecture/>}/>
 
 </Route>
 <Route element={<RequiredAuth allowedRoles={["ADMIN" ,"USER"]}/>}>

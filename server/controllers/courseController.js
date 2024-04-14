@@ -294,6 +294,66 @@ return next(
 
 }
 
+
+
+const removeLectureFromCourse = async(req,res,next) =>{
+    
+
+const {courseId,lectureId} = req.query 
+// console.log("remove",courseId,lectureId)
+
+
+if(!courseId){
+return next (new AppError('course id is required',400))
+
+}
+if(!lectureId){
+    return next (new AppError('lecture id is required',400))
+}
+
+const course  = await Course.findById(courseId)
+if(!course){
+return next(new AppError('course with given id does not exist',400))
+}
+
+
+const lectureIndex = course.lectures.findIndex((lecture) =>lecture._id.toString() === lectureId.toString())
+
+
+if(lectureIndex === -1){
+    return next(new AppError('lecture with given id does not exist',400))
+
+}
+
+await cloudinary.v2.uploader.destroy(
+    course.lectures[lectureIndex].lecture.public_id,
+    {
+      resource_type: 'video',
+    }
+  );
+
+
+  // Remove the lecture from the array
+  course.lectures.splice(lectureIndex, 1);
+
+  // update the number of lectures based on lectres array length
+  course.numberOfLectures = course.lectures.length;
+
+  // Save the course object
+  await course.save();
+
+  // Return response
+  res.status(200).json({
+    success: true,
+    message: 'Course lecture removed successfully',
+  });
+
+
+
+
+
+}
+
 export{getAllCourses,
     getLecturesByCourseId
 
@@ -301,4 +361,5 @@ export{getAllCourses,
 ,updateCourse
 ,removeCourse,
 addLectureToCourseById
+,removeLectureFromCourse
 }
