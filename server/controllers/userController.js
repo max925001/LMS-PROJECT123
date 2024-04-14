@@ -163,13 +163,15 @@ res.status(200).json({
 }
 
 
-const getProfile =  async (req,res ,next) =>{
-
-try{
+const getProfile =  async(req,res,next) =>{
 
     const userId = req.user.id;
+try{
+
+   
+    //console("userid",userId)
     
-const user = await user.findById(userId)
+const user = await User.findById(userId)
 res.status(200).json({
     success:true,
     message:'user details',

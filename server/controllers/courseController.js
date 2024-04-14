@@ -239,7 +239,9 @@ if(req.file){
     try{
         const result = await cloudinary.v2.uploader.upload(req.file.path ,{
 
-            folder: 'lms'
+            folder: 'lms',
+            chunk_size: 60000000, // 60 mb size
+            resource_type: 'video',
         })
         
         if(result){

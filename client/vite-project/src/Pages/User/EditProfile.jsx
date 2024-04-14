@@ -75,7 +75,7 @@ console.log("formdata" ,formData)
 await dispatch(updateProfile([data.userId,formData]))
 
 await dispatch(getUserData())
-navigate('user/profile')
+navigate("/user/profile")
 }
 
   return (

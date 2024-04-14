@@ -45,7 +45,7 @@ navigate("/")
     
      <div className='min-h-[90vh] '>
 
-<div className="drawer absolute left-0 z-50 w-fit">
+<div className="drawer absolute left-0 z-50 w-full">
   <input id="my-drawer" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
     {/* Page content here */}
@@ -107,7 +107,7 @@ isLoggedIn && role == 'ADMIN' && (
 
           <li >
           <div className='w-full flex items-center justify-center'>
-            <button className='btn-primary px-4 py-1 font-semibold rounded-md w-full text-red-400 bg-white'> 
+            <button className='btn-primary px-4 py-1 font-semibold rounded-md w-full text-red-400 bg-white '> 
             <Link to="/user/profile">Profile</Link>
             </button>
             <button className='btn-secondary px-4 py-1 font-semibold rounded-md w-full text-red-400  bg-white'> 
@@ -124,7 +124,9 @@ isLoggedIn && role == 'ADMIN' && (
 {children}
 
 <Footer/>
+
      </div>
+
  
   )
 }
