@@ -65,7 +65,7 @@ videoSrc:""
 }
 
  }
-
+console
 
  useEffect(() =>{
 

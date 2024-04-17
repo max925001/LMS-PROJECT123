@@ -38,7 +38,7 @@ const navigate = useNavigate()
    </p> 
 </div>
 {
-    role =="ADMIN" || data?.subscription?.status == "inactive" ? (
+    role =="ADMIN" || role=="USER"  /*data?.subscription?.status == "inactive"*/ ? (
         <button onClick={() =>navigate("/course/displaylectures" ,{state: {...state}})} className='bg-yellow-600 text-xl rounded-md font-bold px-3 w-full hover:bg-yellow-500 transition-all ease-in-out duration-300 '>Watch Lectures</button>
     ):(
         <button className='bg-yellow-600 text-xl rounded-md font-bold px-3 w-full hover:bg-yellow-500 transition-all ease-in-out duration-300 '>

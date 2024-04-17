@@ -1,8 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 function CourseCard({data}) {
-
+ const {role} = useSelector((state) => state.auth)
     const navigate = useNavigate()
   return (
     <div 
@@ -33,7 +34,9 @@ function CourseCard({data}) {
 </p>
 </div>
       </div>
-
+{
+  role==="ADMIN" &&(<button className='btn-accent px-2 py-1 rounded-md font-semibold text-sm text-white bg-yellow-500'>Delete Course</button>)
+}
     </div>
   )
 }
