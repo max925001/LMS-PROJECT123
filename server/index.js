@@ -3,6 +3,7 @@ config()
 import app from './app.js'
 import connectToDb from './config/dbconn.js'
 import cloudinary from 'cloudinary'
+
 const PORT = process.env.PORT || 5000
 // cloudinary configuration
 cloudinary.v2.config({
