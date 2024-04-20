@@ -16,6 +16,13 @@ app.use(express.json()) //use for paras
 app.use(express.urlencoded({
     extended:true
 }))
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'lms-project-123-git-main-shivam-pandeys-projects-b8c749d7.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next(); 
+})
 app.use(cors({
     origin: [process.env.FRONTEND_URL],
     credentials: true,
