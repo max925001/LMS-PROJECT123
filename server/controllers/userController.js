@@ -4,6 +4,8 @@ import cloudinary from 'cloudinary'
 import fs from 'fs/promises'
 import sendEmail from "../utilis/sendMail.js"
 import crypto from 'crypto'
+import { config } from "dotenv"
+config()
 const cookieOptions = {
     maxAge: 7*24*60*60*1000,
     httpOnly: true,
