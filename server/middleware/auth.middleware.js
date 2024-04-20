@@ -4,8 +4,11 @@ import jwt from "jsonwebtoken"
 
 const isLoggedIn = async (req ,res, next) =>{
 
-    const {token} = req.cookies
-    console.log(token)
+     const {token} =req.cookies.tokens
+
+
+    // const {token} = req.cookies
+    console.log("token",token)
     if(!token){
        
         return next(new AppError('Unauthenticated please login',400))
