@@ -1,4 +1,5 @@
 import{config} from 'dotenv'
+import path from 'path'
 config()
 import app from './app.js'
 import connectToDb from './config/dbconn.js'

@@ -9,14 +9,14 @@ config()
 const cookieOptions = {
     maxAge: 7*24*60*60*1000,
     httpOnly: true,
-    secure: false,
-    
+    secure: process.env.NODE_ENV === 'production' ? true : false
+
 }
 const register =async (req ,res ,next) =>{
 const {fullName ,email,password} =req.body
 if(!fullName || !email || !password){
 
-    return next( new AppError('All fields are required' ,400)
+  return next( new AppError('All fields are required' ,400)
 
 
 )}
