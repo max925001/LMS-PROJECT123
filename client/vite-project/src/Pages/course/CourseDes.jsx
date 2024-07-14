@@ -17,7 +17,7 @@ const navigate = useNavigate()
     <HomeLayout>
     <div className='min-h-[90vh] pt-20 px-20 flex flex-col items-center jsutify-center text-white'>
 
-        <div className='grid grid-cols-2 gap-10 py-10 relative'>
+        <div className='grid grid-cols-2 gap-10 py-10 '>
             <img src={state?. thumbnail ?. secure_url } alt=""
             className='w-full h-64' />
 <div className='space-y-4'>

@@ -43,7 +43,7 @@ navigate("/")
 
   return (
     
-     <div className='min-h-[90vh] '>
+     <div className='min-h-[90vh] z-50 '>
 
 <div className="drawer absolute left-0 z-50 w-full">
   <input id="my-drawer" type="checkbox" className="drawer-toggle" />
