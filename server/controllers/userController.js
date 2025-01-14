@@ -10,8 +10,8 @@ const cookieOptions = {
     maxAge: 7*24*60*60*1000,
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production' ? true : false,
-    sameSite:'None',
-    secure: true
+    // sameSite:'None',
+    // secure: true
 
 }
 const register =async (req ,res ,next) =>{
@@ -100,7 +100,7 @@ res.status(200).json({
 
 
 }
-
+    
 const login  = async (req,res,next) =>{
 
 
@@ -121,11 +121,15 @@ if(!email || !password)
 const user = await User.findOne({
     email
 }).select('+password') // ye ish liye kiya hai taki password bhi mile data base se
-if(!user || !user.comparePassword(password)){
+if (!user) {
+    return next(new AppError("Email or password does not match", 400));
+  }
 
-return next(new AppError('Email or password does not match',400))
+  const isMatch = await user.comparePassword(password);
+  if (!isMatch) {
+    return next(new AppError("Email or password does not match", 400));
+  }
 
-}
 
 const token = await user.generateJWTtoken()
 user.password = undefined

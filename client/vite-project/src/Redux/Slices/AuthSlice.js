@@ -67,6 +67,7 @@ try{
 
 
     const res = axiosInstance.post("user/logout")
+    console.log("logout" ,res)
     toast.promise(res,{
     
         loading: "Wait Logout is in progress",
@@ -170,12 +171,27 @@ const authSlice = createSlice({
             // ye method login ke fullfilled hone pe chalega
 // aur fullfil hone pe hum ek reducer define kar sakte hai
 
-localStorage.setItem("data" , JSON.stringify(action?. payload?.user))
-localStorage.setItem("isLoggedIn" ,true)
-localStorage.setItem("role" ,action?. payload?. user?. role)
-state.isLoggedIn =true
-state.data = action?.payload?.user
-state.role = action?.payload?.user?.role
+if (action?.payload?.user) {
+    // Save valid data to local storage
+    localStorage.setItem("data", JSON.stringify(action.payload.user));
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("role", action.payload.user.role);
+
+    // Update the state
+    state.isLoggedIn = true;
+    state.data = action.payload.user;
+    state.role = action.payload.user.role;
+  } else {
+    // Ensure local storage is clean on invalid payload
+    localStorage.removeItem("data");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("role");
+
+    // Reset state
+    state.isLoggedIn = false;
+    state.data = null;
+    state.role = null;
+  }
 
         })
 

@@ -1,44 +1,47 @@
-import React from 'react'
-import HomeLayout from '../Layouts/HomeLayout'
-import { Link } from 'react-router-dom'
-import onlineImage from '../assets/Images/OnlineImage.avif'
+import React from "react";
+import HomeLayout from "../Layouts/HomeLayout";
+import { Link } from "react-router-dom";
+import onlineImage from "../assets/Images/OnlineImage.avif";
+
 function Home() {
   return (
     <HomeLayout>
-      <div className='flex flex-col   pt-10 text-white lg:flex lg:flex-row items-center justify-center gap-10 mx-16 h-[90vh]'>
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-between min-h-[90vh] px-5 sm:px-10 lg:px-20 pt-10 text-white bg-gray-900">
+        {/* Text Section */}
+        <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-snug">
+            Find the Best{" "}
+            <span className="text-yellow-500">Online Courses</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-300">
+            Discover a wide range of courses taught by highly skilled and
+            qualified instructors at an affordable cost.
+          </p>
+          <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-6 space-y-4 lg:space-y-0">
+            <Link to="/courses">
+              <button className="bg-yellow-500 px-5 py-3 rounded-md font-semibold text-lg hover:bg-yellow-600 transition-all ease-in-out duration-300">
+                Explore Courses
+              </button>
+            </Link>
+            <Link to="/contact">
+              <button className="border border-yellow-500 px-5 py-3 rounded-md font-semibold text-lg hover:bg-yellow-600 hover:text-white transition-all ease-in-out duration-300">
+                Contact Us
+              </button>
+            </Link>
+          </div>
+        </div>
 
-<div className=' w-full  md:space-y-6 lg:w-1/2 lg:space-y-6'>
-    <h1 className=' text-3xl  lg:text-5xl font-semibold'>
-
-      Find out best     
-      <span className='text-yellow-500 font-bold'>Online Course</span>
-    </h1>
-    <p className='text-xl text-gray-200'>
-    We have a large library of course taught by highly skilled and qualified faculties at a very affordable cost
-
-    </p>
-    <div className=' flex  flex-col items-center justify-center mt-5 lg:flex-row lg:space-x-6'>
-<Link to="/courses">
-  <button className='bg-yellow-500 px-5 py-3 rounded-md font-semibold text-lg cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300'> 
-    Explore courses
-  </button>
-</Link>
-<Link to="/contact">
-  <button className=' border border-yellow-500 m-6 px-5 py-3 rounded-md font-semibold text-lg cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300'> 
-  Contact Us
-  </button>
-</Link>
-    </div>
-</div>
-
-
-<div className='w-1/2 flex items-center justify-center'>
-<img src={onlineImage} alt="homepage image" className='  w-full' />
-</div>
+        {/* Image Section */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center">
+          <img
+            src={onlineImage}
+            alt="homepage image"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-full rounded-lg shadow-lg"
+          />
+        </div>
       </div>
-
     </HomeLayout>
-  )
+  );
 }
 
-export default Home
+export default Home;

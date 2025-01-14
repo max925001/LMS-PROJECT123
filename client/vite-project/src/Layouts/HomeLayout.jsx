@@ -35,7 +35,7 @@ drawerside[0].style.width ="auto"
 e.preventDefault()
 
 const res =await dispatch(logout())
-
+console.log(res)
 if(res?. payload?. success)
 navigate("/")
 }

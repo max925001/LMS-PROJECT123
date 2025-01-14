@@ -7,7 +7,7 @@ function CourseList() {
 
     const dispatch = useDispatch()
     const {courseData} = useSelector((state) => state.course)
-
+// console.log("courseda",courseData)
 
 async function loadCourse(){
 
@@ -29,7 +29,7 @@ loadCourse()
         <span className='font-bold text-yellow-500'>
             Industry Experts
         </span> </h1>
-        <div className='mb-10 flex flex-wrap   gap-14 '>
+        <div className='mb-10 flex flex-wrap  m-auto gap-14 '>
 
 
 {

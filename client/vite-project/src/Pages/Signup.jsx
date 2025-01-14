@@ -11,6 +11,10 @@ function Signup() {
     const navigate = useNavigate()
     
 
+
+
+    
+
 const [previewImage , setPreviewImage] = useState("")
 
 const [signupdata , setsignupdata] = useState({
@@ -98,7 +102,7 @@ formData.append("fullName" ,signupdata.fullName)
 formData.append("email" ,signupdata.email)
 formData.append("password" ,signupdata.password)
 formData.append("avatar", signupdata.avatar)
-console.log("formdatadign",formData)
+// console.log("formdatadign",formData)
 
 //dispatch create account action
 const response = await disptch(createAccount(formData))
