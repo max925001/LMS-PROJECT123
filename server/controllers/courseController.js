@@ -7,7 +7,9 @@ import fs from 'fs/promises'
 const getAllCourses = async(req,res,next) =>{
 
 const courses = await Course.find({}).select('-lectures')
+
 try{
+    
 res.status(200).json({
     success:true,
     message:'All course',

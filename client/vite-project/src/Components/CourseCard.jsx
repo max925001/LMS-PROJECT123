@@ -15,10 +15,10 @@ await dispatch(getAllCourse())
 }
 
 
-useEffect(() =>{
-   dispatch(getAllCourse())
+// useEffect(() =>{
+//    dispatch(getAllCourse())
   
-      },[])
+//       },[])
 
   return (
     <div 
