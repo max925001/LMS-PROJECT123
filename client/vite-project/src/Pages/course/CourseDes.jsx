@@ -50,7 +50,7 @@ function CourseDes() {
                 Watch Lectures
               </button>
             ) : (
-              <button className="bg-yellow-500 text-xl rounded-md font-bold px-5 py-2 w-full sm:w-auto hover:bg-yellow-600 transition-all duration-300">
+              <button className="bg-yellow-500 text-xl rounded-md font-bold px-5 py-2 w-full sm:w-auto hover:bg-yellow-600 transition-all duration-300" onClick={() =>navigate("/login")}>
                 Subscribe
               </button>
             )}

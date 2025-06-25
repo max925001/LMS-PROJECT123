@@ -6,6 +6,7 @@ import connectToDb from './config/dbconn.js';
 import router from './routes/userRoutes.js';
 import courseRouters from './routes/courseRouters.js'
 import errorMiddleware from './middleware/error.middleware.js';
+import axios from 'axios'
 
 const app = express();
 
@@ -30,6 +31,26 @@ app.use(cookieParser())
 
 app.use(morgan('dev'))
  // ye morgan dependency se hum ye pta lga sakte hai ki mere website kaun se methods se access ho rhi hai
+
+
+ const url = "https://lms-project123-1.onrender.com/ping"
+const interval = 300000;
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
+
+setInterval(reloadWebsite, interval);
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
+
 app.use('/ping' ,(req,res) =>{
     res.send('/pong')
 })
