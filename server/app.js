@@ -33,20 +33,6 @@ app.use(morgan('dev'))
  // ye morgan dependency se hum ye pta lga sakte hai ki mere website kaun se methods se access ho rhi hai
 
 
- const url = "https://lms-project123-1.onrender.com/ping"
-const interval = 300000;
-function reloadWebsite() {
-  axios
-    .get(url)
-    .then((response) => {
-      console.log("website reloded again");
-    })
-    .catch((error) => {
-      console.error(`Error : ${error.message}`);
-    });
-}
-
-setInterval(reloadWebsite, interval);
 app.get("/", (req, res) => {
   res.send("hello world");
 });
